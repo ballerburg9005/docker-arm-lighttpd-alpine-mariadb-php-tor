@@ -126,7 +126,7 @@ CREATE USER necro69yiffparty@'%' IDENTIFIED BY 'UrPassword';
 GRANT ALL PRIVILEGES ON necro69yiffparty.* TO necro69yiffparty@'%';
 ```
 
-Now exit the container and do the following, so that you don't accidentally overwrite the root password from the bash history.
+Now exit the container and do the following, so that you don't accidentally overwrite the mysql root password with the -e environment variable parameter from the bash history.
 
 ```
 docker container list -a
