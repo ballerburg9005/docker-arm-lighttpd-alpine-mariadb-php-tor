@@ -1,4 +1,4 @@
-FROM armhf/alpine:latest
+FROM mylocalpkg/alpine
 
 RUN apk add --no-cache lighttpd \
     && adduser www-data -G www-data -H -s /bin/false -D

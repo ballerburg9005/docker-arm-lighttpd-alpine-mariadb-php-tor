@@ -46,6 +46,7 @@ Make sure it says linux/arm64 obviously.
 
 ## Building the packages
 ``` 
+docker buildx build --platform linux/arm64 -t mylocalpkg/alpine ./alpine
 docker buildx build --platform linux/arm64 -t mylocalpkg/arm:lighttpd ./lighttpd
 docker buildx build --platform linux/arm64 -t mylocalpkg/arm:mariadb ./mariadb
 docker buildx build --platform linux/arm64 -t mylocalpkg/arm:php7 ./php7
@@ -93,7 +94,7 @@ chown 1000:1000 ${UR_HOST_DIR_HTTPD}
 
 # for Tor 
 mkdir tor/hiddenservices
-chown 1000:1000 tor/hiddenservices
+chown 100:0 tor/hiddenservices
 chmod 700 tor/hiddenservices
 echo -e "Log notice stdout \nSocksPort 127.0.0.1:9050 \nHiddenServiceDir /etc/tor/hiddenservices/necro69yiffparty/ \nHiddenServicePort 80 php-host:80"
 
