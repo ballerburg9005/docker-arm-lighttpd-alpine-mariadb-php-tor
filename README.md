@@ -16,7 +16,7 @@ The following instructions assume that you are cross-compiling on your PC for so
 
 ## Enable buildx for docker
 ```
- if [[  -a ~/.docker/config.json ]]; then echo "\n\nplease add it by hand\!"; else  mkdir ~/.docker/; echo '{"experimental": "enabled"}' > ~/.docker/config.json; fi
+ if [[  -a ~/.docker/config.json ]]; then echo "\n\nplease add it by hand\!"; else  mkdir ~/.docker/ >& /dev/null; echo '{"experimental": "enabled"}' > ~/.docker/config.json; fi
 ```
 
 
