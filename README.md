@@ -70,7 +70,7 @@ SSH into your box.
 for name in lighttpd mariadb php7 tor; do docker load -i ${name}.bz2; done
 ```
 
-Please note that the following "docker run .." commands are **setup commands**. They instantiate the images into what is called docker containers. If you delete a container and re-instantiate the image, all changes to the container are lost. This is why the -v parameters specify volumes outside the images for data and config files, so that even if you delete a container nothing important is lost.
+Please note that the following *"docker run .."* commands are *setup commands*. They instantiate the images into what is called docker containers. If you delete a container and re-instantiate the image, all changes to the container are lost. This is why the -v parameters specify volumes outside the images for data and config files, so that even if you delete a container nothing important is lost.
 
 The containers are linked with a network bridge. Docker creates a host file, so that you can e.g. "ping php-host" or just put "mariadb-host" into your Wordpress setup without managing IP addresses by hand.
 
