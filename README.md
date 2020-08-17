@@ -17,7 +17,6 @@ The following instructions assume that you are cross-compiling on your PC for so
 ## Enable buildx for docker
 ```
  if [[  -a ~/.docker/config.json ]]; then echo "\n\nplease add it by hand\!"; else  mkdir ~/.docker/; echo '{"experimental": "enabled"}' > ~/.docker/config.json; fi
-
 ```
 
 
@@ -40,7 +39,6 @@ Now it should look like this:
 NAME/NODE DRIVER/ENDPOINT STATUS  PLATFORMS
 default * docker                  
   default default         running linux/amd64, linux/arm64, linux/riscv64, linux/ppc64le, linux/s390x, linux/386, linux/arm/v7, linux/arm/v6
-
 ```
 
 Make sure it says "default * docker", that means that you are using the "docker" driver and not Buildkit, so that local packages can be accessed by other local packages.
@@ -53,7 +51,6 @@ docker buildx build --platform linux/arm64 -t mylocalpkg/arm:lighttpd ./lighttpd
 docker buildx build --platform linux/arm64 -t mylocalpkg/arm:mariadb ./mariadb
 docker buildx build --platform linux/arm64 -t mylocalpkg/arm:php7 ./php7
 docker buildx build --platform linux/arm64 -t mylocalpkg/arm:tor ./tor
-
 ```
 
 
