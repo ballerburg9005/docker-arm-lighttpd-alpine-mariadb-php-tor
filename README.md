@@ -1,5 +1,3 @@
-
-
 ### Docker aarch64 (arm64, armhf) LAMP-T stack (Lighttpd, Alpine, MariaDB, PHP, Tor)
 
 Updated and ripped from:
