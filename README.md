@@ -4,7 +4,7 @@ Updated and ripped from:
 * https://github.com/luvres/armhf
 * https://github.com/foertel/rpi-alpine-tor
 
-## USING: alpine:latest and tor-0.4.4.4-rc
+**USING: alpine:latest and tor-0.4.4.4-rc**
 
 The following instructions assume that you are cross-compiling on your PC for some ARM box.
 
