@@ -91,7 +91,7 @@ chmod 755 tor
 chown 100:101 ${UR_HOST_DIR_MYSQL}
 chown 1000:1000 ${UR_HOST_DIR_HTTPD}
 
-# only needed for hidden service
+# for Tor 
 mkdir tor/hiddenservices
 chown 1000:1000 tor/hiddenservices
 chmod 700 tor/hiddenservices
