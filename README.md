@@ -1,8 +1,8 @@
 ### Docker aarch64 (arm64, armhf) LAMP-T stack (Lighttpd, Alpine, MariaDB, PHP, Tor)
 
 Updated and ripped from:
-https://github.com/luvres/armhf
-https://github.com/foertel/rpi-alpine-tor
+* https://github.com/luvres/armhf
+* https://github.com/foertel/rpi-alpine-tor
 
 ## USING: alpine:latest and tor-0.4.4.4-rc
 
