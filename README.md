@@ -6,8 +6,7 @@ Updated and ripped from:
 
 **USING: alpine:latest and tor-0.4.4.4-rc**
 
-The following instructions assume that you are cross-compiling on your PC for some ARM box.
-
+The following instructions assume that you are cross-compiling on your PC for some ARM box. I am using a repurposed Android TV Box, but it should also work without issues on Rasperry Pi, Odroid, Wetek, S805/S812/S905 devices, etc.
 
 ## Docker setup
 * Use root account for all commands
