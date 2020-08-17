@@ -76,21 +76,29 @@ The containers are linked with a network bridge. Docker creates a host file, so 
 
 If you want to expose the http port from your webserver (e.g. if not using Tor), simply add -p 80:80 (container:host) to the PHP container.
 
+Please do not blindly paste but check and adapt the following sections to your needs.
+
 ```
+export MYSQL_ROOT_PASS=n00b42cf113b920bfc32c8b025n00b
 export UR_HOST_DIR=/storage/
+
+# those directories from your host will be overlayed inside certain docker container directories as volumes
 cd $UR_HOST_DIR
 mkdir mysql httpd tor
-export MYSQL_ROOT_PASS=noob
 
-chmod 770 mysql httpd tor
+# permissions as they are found inside the containers
+chmod 770 mysql httpd 
+chmod 755 tor
 chown 100:101 ${UR_HOST_DIR_MYSQL}
 chown 1000:1000 ${UR_HOST_DIR_HTTPD}
 
+# only needed for hidden service
 mkdir tor/hiddenservices
 chown 1000:1000 tor/hiddenservices
 chmod 700 tor/hiddenservices
 echo -e "Log notice stdout \nSocksPort 127.0.0.1:9050 \nHiddenServiceDir /etc/tor/hiddenservices/necro69yiffparty/ \nHiddenServicePort 80 php-host:80"
 
+# initial docker setup commands to create containers
 docker run --name MariaDB -h mariadb  -v ${UR_HOST_DIR}/mysql:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASS} -d mylocalpkg/arm:mariadb &
 docker run --name PHP -h php --link MariaDB:mariadb-host -v ${UR_HOST_DIR}/httpd:/var/www -d mylocalpkg/arm:php7 &
 docker run --name TOR -d --link PHP:php-host -v ${UR_HOST_TOR_DIR}/tor:/etc/tor mylocalpkg/arm:tor &
@@ -106,7 +114,7 @@ docker container list
 docker container exec -it 3f7URxID7d15 busybox sh
 ```
 
-Inside the container, go into MariaDB, change the root password and add a user and table for your web stuff.
+Inside the container, go into MariaDB, change the root password and add a user and table for your web stuff:
 
 ```
 mysql -u root -p
@@ -129,7 +137,7 @@ docker container rm 3f7URxID7d15
 docker run --name MariaDB -h mariadb  -v ${UR_HOST_DIR}/mysql:/var/lib/mysql -d mylocalpkg/arm:mariadb 
 ```
 
-Make docker containers start at boot, e.g. add this into your /etc/rc.local :
+To make docker containers start at boot, add this to your /etc/rc.local :
 
 ```
 export UR_HOST_DIR=/storage/
@@ -142,6 +150,8 @@ docker restart MariaDB &
 docker restart PHP &
 ```
 
-That is it. You can now use Eschalot to generate a fancy .onion URL, like zz6a1u790iyiff69.onion. Don't forget you can simply use "mariadb-host" instead of some IP address from inside the httpd server.
+That is it. You can now use Eschalot to generate a fancy .onion URL, like zz6a1u790iyiff69.onion. 
+
+Don't forget you can simply use "mariadb-host" instead of some IP address from inside the httpd server.
 
 No ports are exposed to the outside.
