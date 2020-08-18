@@ -173,7 +173,7 @@ Don't forget you can simply use "mariadb-host" instead of some IP address from i
 You can also view logs:
 
 ```
-docker container logs TOR
+docker container logs PHP
 ```
 
 Or sh into a running container:
