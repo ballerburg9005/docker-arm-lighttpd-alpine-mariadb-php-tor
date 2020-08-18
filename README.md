@@ -64,7 +64,7 @@ scp lighttpd.bz2 mariadb.bz2 php7.bz2 tor.bz2 root@192.168.0.10:/home/mydestinat
 
 ## Setting up your host system
 
-SSH into your box.
+SSH into your ARM box.
 
 ```
 for name in lighttpd mariadb php7 tor; do docker load -i ${name}.bz2; done
