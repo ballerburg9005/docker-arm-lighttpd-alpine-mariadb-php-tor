@@ -8,7 +8,7 @@ Check out https://github.com/luvres/armhf for more stuff. Its dated though, but 
 
 **Fiddle factor: negligible**
 
-You will end up with a working .onion address, where you can host a Blog, Forum and similar.
+You will end up with a working .onion address, where you can host a blog, forum and similar.
 
 If you want to use newer versions, download a newer Alpine miniroot and simply change the Dockerfile in ./alpine/ appropriately. Drop a PR for that if you want.
 
