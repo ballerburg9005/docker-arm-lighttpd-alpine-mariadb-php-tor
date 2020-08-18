@@ -1,10 +1,10 @@
 ### Docker aarch64 (arm64, armhf) LAMP-T stack (Lighttpd, Alpine, MariaDB, PHP, Tor)
 
-Updated and ripped from:
-* https://github.com/luvres/armhf
-* https://github.com/foertel/rpi-alpine-tor
+Check out https://github.com/luvres/armhf for more stuff. Its dated though, but can be easily adopted into this project folder.
 
-**USING: Alpine 3.12** (this should also work with newer versions)
+**USING: Alpine 3.12 with PHP 7.3**
+
+If you want to use newer versions, download a newer Alpine miniroot and simply change the Dockerfile in ./alpine/ appropriately. Drop a PR for that if you want.
 
 The following instructions assume that you are cross-compiling on your PC for some ARM box. I am using a repurposed Android TV Box, but it should also work without issues on Rasperry Pi, Odroid, Wetek, S805/S812/S905 devices, etc.
 
