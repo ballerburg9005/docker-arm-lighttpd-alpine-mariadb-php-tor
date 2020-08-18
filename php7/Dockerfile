@@ -25,6 +25,7 @@ RUN apk add --no-cache \
     php7-ctype \
     php7-dom \
     php7-mysqli \
+    php7-tokenizer \
   \
     && mkdir -p /run/lighttpd/ \
     && chown www-data. /run/lighttpd/  \ 
