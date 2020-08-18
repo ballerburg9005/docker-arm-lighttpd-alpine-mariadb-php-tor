@@ -182,7 +182,7 @@ Or sh into a running container:
 docker container exec -it MariaDB --user 0 sh
 ```
 
-If you want a fancy URL like zz6a1u790iyiff69.onion , you can use `Eschalot <https://github.com/ReclaimYourPrivacy/eschalot>`.
+If you want a fancy URL like zz6a1u790iyiff69.onion , you can use [Eschalot](<https://github.com/ReclaimYourPrivacy/eschalot>) .
 
 Simply replace the contents of the auto-generated "hostname" and "private_key" files in ${UR_HOST_DIR}/tor/hiddenservices/${UR_HIDDEN_SERVICE}/ .
 
