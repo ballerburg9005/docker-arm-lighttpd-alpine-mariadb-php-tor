@@ -111,6 +111,7 @@ Inside, set up the database with your new root password.
 
 ```
 mariadb-install-db --user=mysql --datadir=/var/lib/mysql
+mysql_tzinfo_to_sql /usr/share/zoneinfo | mysql mysql
 su-exec mysql mysqld&
 
 
@@ -123,8 +124,8 @@ DROP DATABASE IF EXISTS test ;
 
 /* at this chance, you can also add a database/user for your webstuff */
 CREATE DATABASE necro69yiffparty;
-CREATE USER necro69yiffparty@'%' IDENTIFIED BY 'UrOtherPassword';
-GRANT ALL PRIVILEGES ON necro69yiffparty.* TO necro69yiffparty@'%';
+CREATE USER 'necro69yiffparty'@'%' IDENTIFIED BY 'UrOtherPassword';
+GRANT ALL PRIVILEGES ON necro69yiffparty.* TO 'necro69yiffparty'@'%';
 
 FLUSH PRIVILEGES ;
 ```
