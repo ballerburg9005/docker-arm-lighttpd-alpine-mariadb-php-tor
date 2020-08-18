@@ -156,7 +156,7 @@ docker restart MariaDB &
 docker restart PHP &
 ```
 
-FYI, you can sh into any running container like this:
+If you need to access mysql again, you can sh into any running container like this:
 
 ```
 docker container exec -it MariaDB busybox sh
