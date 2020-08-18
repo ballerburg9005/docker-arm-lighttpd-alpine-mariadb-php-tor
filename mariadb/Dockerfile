@@ -10,10 +10,8 @@ RUN apk add --no-cache \
     && mkdir /run/mysqld \
     && chmod 777 /run/mysqld
 
-COPY ./docker-entrypoint.sh /docker-entrypoint.sh
-
 EXPOSE 3306
 
-ENTRYPOINT ["/docker-entrypoint.sh"]
+USER mysql
 CMD ["mysqld"]
 
