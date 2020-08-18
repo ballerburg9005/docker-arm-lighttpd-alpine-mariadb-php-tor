@@ -6,7 +6,7 @@ Check out https://github.com/luvres/armhf for more stuff. Its dated though, but 
 
 **Time required: 15 minutes**
 
-**Fiddle factor: very small**
+**Fiddle factor: negligible**
 
 
 If you want to use newer versions, download a newer Alpine miniroot and simply change the Dockerfile in ./alpine/ appropriately. Drop a PR for that if you want.
