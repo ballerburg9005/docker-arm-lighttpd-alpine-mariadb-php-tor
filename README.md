@@ -4,6 +4,10 @@ Check out https://github.com/luvres/armhf for more stuff. Its dated though, but 
 
 **USING: Alpine 3.12 with PHP 7.3**
 
+**Time required: 5-10 minutes**
+**Fiddle factor: very small**
+
+
 If you want to use newer versions, download a newer Alpine miniroot and simply change the Dockerfile in ./alpine/ appropriately. Drop a PR for that if you want.
 
 The following instructions assume that you are cross-compiling on your PC for some ARM box. I am using a repurposed Android TV Box running LibreELEC, but it should also work without issues on Rasperry Pi, Odroid, Wetek, S805/S812/S905 devices, etc.
