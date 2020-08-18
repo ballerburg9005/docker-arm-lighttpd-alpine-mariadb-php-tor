@@ -10,7 +10,7 @@ Check out https://github.com/luvres/armhf for more stuff. Its dated though, but 
 
 You will end up with a working .onion address, where you can host a blog, forum and similar.
 
-If you want to use newer versions, download a newer Alpine miniroot and simply change the Dockerfile in ./alpine/ appropriately. Drop a PR for that if you want.
+If you want to use newer versions or a different architecture, simply download a different miniroot from https://nl.alpinelinux.org/alpine/ and change the Dockerfile in ./alpine/ appropriately. Drop a PR for that if you want.
 
 The following instructions assume that you are cross-compiling on your Linux PC for some ARM box. I am using a repurposed Android TV Box running LibreELEC, but it should also work without issues on Rasperry Pi, Odroid, Wetek, S805/S812/S905 devices, etc.
 
