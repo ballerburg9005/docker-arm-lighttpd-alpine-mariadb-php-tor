@@ -88,8 +88,8 @@ mkdir mysql httpd tor
 # permissions as they are found inside the containers
 chmod 750 mysql httpd 
 chmod 755 tor
-chown 100:101 ${UR_HOST_DIR_MYSQL}
-chown 1000:1000 ${UR_HOST_DIR_HTTPD}
+chown 100:101 mysql
+chown 1000:1000 httpd
 
 # for Tor 
 mkdir tor/hiddenservices
