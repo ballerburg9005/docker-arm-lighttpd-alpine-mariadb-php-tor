@@ -135,7 +135,7 @@ docker container rm MariaDB
 
 Please note that the following *"docker run .."* commands are *setup commands*. They instantiate the images into what is called docker containers. If you delete a container and re-instantiate the image, all changes to the container are lost. This is why the -v parameters specify volumes outside the images for data and config files, so that even if you delete a container nothing important is lost.
 
-The containers are linked with a network bridge. Docker creates a host file, so that you can e.g. "ping php-host" or just put "mariadb-host" into your Wordpress setup without managing IP addresses by hand.
+The containers are linked with a network bridge. Docker creates a host file with the linked containers, so that you can e.g. put "mariadb-host" into your Wordpress setup, instead of specifying some IP address.
 
 If you want to expose the http port from your webserver (e.g. if not using Tor), simply add -p 80:80 (container:host) to the PHP container.
 
