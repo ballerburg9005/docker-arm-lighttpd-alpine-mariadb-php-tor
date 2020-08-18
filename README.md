@@ -12,7 +12,7 @@ You will end up with a working .onion address, where you can host a blog, forum 
 
 If you want to use newer versions (none yet in 2020-08) or a different architecture, simply download a different miniroot from https://nl.alpinelinux.org/alpine/ and change the Dockerfile in ./alpine/ appropriately. 
 
-The following instructions assume that you are cross-compiling on your Linux PC for some ARM box. I am using a repurposed Android TV Box running LibreELEC, but it should also work without issues on Rasperry Pi, Odroid, Wetek, S805/S812/S905 devices, etc.
+The following instructions assume that you are cross-compiling on your Linux PC for some ARM box. I am using a repurposed Android TV Box running LibreELEC, but it should also work without issues on Rasperry Pi, Odroid, Wetek, S805/S812/S905 devices, etc. Maybe you need to use armv7 for older boxes.
 
 ## Build setup on your PC
 * Use root account for all commands
