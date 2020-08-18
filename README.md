@@ -179,7 +179,7 @@ docker container logs PHP
 Or sh into a running container:
 
 ```
-docker container exec -it MariaDB --user 0 sh
+docker container exec --user 0 -it MariaDB sh
 ```
 
 If you want a fancy URL like zz6a1u790iyiff69.onion , you can use [Eschalot](<https://github.com/ReclaimYourPrivacy/eschalot>) .
