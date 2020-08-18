@@ -12,7 +12,7 @@ You will end up with a working .onion address, where you can host a blog, forum 
 
 If you want to use newer versions, download a newer Alpine miniroot and simply change the Dockerfile in ./alpine/ appropriately. Drop a PR for that if you want.
 
-The following instructions assume that you are cross-compiling on your PC for some ARM box. I am using a repurposed Android TV Box running LibreELEC, but it should also work without issues on Rasperry Pi, Odroid, Wetek, S805/S812/S905 devices, etc.
+The following instructions assume that you are cross-compiling on your Linux PC for some ARM box. I am using a repurposed Android TV Box running LibreELEC, but it should also work without issues on Rasperry Pi, Odroid, Wetek, S805/S812/S905 devices, etc.
 
 ## Build setup on your PC
 * Use root account for all commands
