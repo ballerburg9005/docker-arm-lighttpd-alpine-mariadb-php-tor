@@ -90,7 +90,6 @@ mkdir tor/hiddenservices
 chown 100:0 tor/hiddenservices
 chmod 700 tor/hiddenservices
 echo -e "Log notice stdout \nSocksPort 127.0.0.1:9050 \nHiddenServiceDir /etc/tor/hiddenservices/necro69yiffparty/ \nHiddenServicePort 80 php-host:80"
-
 ```
 
 ## Configuring MariaDB
