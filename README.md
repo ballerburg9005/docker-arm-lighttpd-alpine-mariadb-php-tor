@@ -76,12 +76,13 @@ SSH into your ARM box.
 for name in lighttpd mariadb php7 tor; do docker load -i ${name}.bz2; done
 ```
 
-Please do not blindly paste but check and adapt the following sections to your needs.
+Please adapt the exported variables appropriately.
 
 ```
 export UR_HOST_DIR=/storage/
+export UR_HIDDEN_SERVICE=necro69yiffparty
 
-# those directories from your host will be overlayed inside certain docker container directories as volumes
+# those directories on your host will be overlayed inside corresponding docker container directories as volumes
 cd $UR_HOST_DIR
 mkdir mysql httpd tor
 
@@ -95,7 +96,7 @@ chown 1000:1000 httpd
 mkdir tor/hiddenservices
 chown 100:0 tor/hiddenservices
 chmod 700 tor/hiddenservices
-echo -e "Log notice stdout \nSocksPort 127.0.0.1:9050 \nHiddenServiceDir /etc/tor/hiddenservices/necro69yiffparty/ \nHiddenServicePort 80 php-host:80"
+echo -e "Log notice stdout \nSocksPort 127.0.0.1:9050 \nHiddenServiceDir /etc/tor/hiddenservices/${UR_HIDDEN_SERVICE}/ \nHiddenServicePort 80 php-host:80"
 ```
 
 ## Configuring MariaDB
