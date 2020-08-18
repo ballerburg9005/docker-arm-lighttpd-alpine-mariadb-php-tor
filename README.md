@@ -134,7 +134,9 @@ docker container rm MariaDB
 If you somewhen need to access mysql again, you can sh into any running container like this:
 
 ```
-docker container exec -it MariaDB busybox sh
+docker container exec -it MariaDB --user 0 sh
+mysql
+
 ```
 
 ## Setting up docker containers
