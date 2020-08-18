@@ -141,7 +141,7 @@ docker container rm MariaDB
 
 Please note that the following *"docker run .."* commands are *setup commands*. They instantiate the images into what is called docker containers. If you delete a container and re-instantiate the image, all changes to the container are lost. This is why the -v parameters specify volumes outside the container for data and config files, so that even if you delete a container nothing important is lost.
 
-Docker will keep multiple containers and multiple images loaded, when it is probably not desirable at all to do so. You should therefore always check with "docker [image|container] ls -a" and remove with "docker [image|container] rm [id]" anything old before loading something new.
+Docker will keep multiple containers and multiple images loaded, when it is probably not desirable to do so at all. You should therefore always check with "docker [image|container] ls -a" and remove with "docker [image|container] rm [id]" anything old before loading something new.
 
 The containers are linked with a network bridge. Docker creates a host file with the linked containers, so that you can e.g. put "mariadb-host" into your Wordpress setup, instead of specifying some IP address.
 
