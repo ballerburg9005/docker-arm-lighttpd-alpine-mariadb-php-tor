@@ -76,7 +76,7 @@ SSH into your ARM box.
 for name in lighttpd mariadb php7 tor; do docker load -i ${name}.bz2; done
 ```
 
-Please adapt the exported variables appropriately.
+Please adapt the exported variables appropriately. Make sure that you are using the same ssh session for all the following commands, so that $UR_HOST_DIR will not return an empty string in the commands.
 
 ```
 export UR_HOST_DIR=/storage/
@@ -104,8 +104,6 @@ echo -e "Log notice stdout \nSocksPort 127.0.0.1:9050 \nHiddenServiceDir /etc/to
 This command bypasses the default startup and drops you into a shell inside the mariadb container.
 
 ```
-export UR_HOST_DIR=/storage/
-
 docker run -ti --entrypoint=sh --user 0 --name MariaDB -h mariadb  -v ${UR_HOST_DIR}/mysql:/var/lib/mysql mylocalpkg/arm:mariadb
 ```
 
