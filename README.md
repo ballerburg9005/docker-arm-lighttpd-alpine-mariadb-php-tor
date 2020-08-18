@@ -141,7 +141,6 @@ If you somewhen need to access mysql again, you can sh into any running containe
 ```
 docker container exec -it MariaDB --user 0 sh
 mysql
-
 ```
 
 ## Setting up docker containers
