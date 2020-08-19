@@ -150,7 +150,7 @@ Docker will keep multiple containers and multiple images loaded, when it is prob
 
 The containers are linked with a network bridge. Docker creates a host file with the linked containers, so that you can e.g. put "mariadb-host" into your Wordpress setup, instead of specifying some IP address.
 
-If you want to expose the http port from your webserver (e.g. if not using Tor), simply add -p 80:80 (container:host) to the PHP container.
+If you want to expose the http port from your webserver (e.g. if not using Tor), simply add -p 80:80 (host:container) to the PHP container.
 
 
 ```
