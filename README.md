@@ -4,7 +4,7 @@ Check out https://github.com/luvres/armhf for more stuff. Its dated though, but 
 
 **USING: Alpine 3.12 with PHP 7.3**
 
-**Time required: 15 minutes**
+**Time required: 20 minutes**
 
 **Fiddle factor: negligible**
 
@@ -15,6 +15,8 @@ You can edit the Dockerfile in ./alpine/ for a newer version. 3.12 currently is 
 You can also build this for different architectures like linux/amd64.
 
 The following instructions assume that you are cross-compiling on your Linux PC for some ARM box. I am using a repurposed Android TV Box running LibreELEC, but it should also work without issues on Rasperry Pi, Odroid, Wetek, S805/S812/S905 devices, etc. Maybe you need to use armv7 for older boxes.
+
+Please note that I have not included any of the typical docker setup-scripts on purpose. They break easily with future versions, and checking them for loopholes and errors is very tedious to the user. Quite frankly, autosetup scripts are a totally fragile and untransparent mess. If you find this repo 5 years from now, just put in alpine:6.1something and it probably will all still be working - unlike all the other docker images out there still running PHP5.
 
 ## Build setup on your PC
 * Use root account for all commands
