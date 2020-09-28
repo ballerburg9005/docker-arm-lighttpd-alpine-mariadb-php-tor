@@ -26,6 +26,11 @@ RUN apk add --no-cache \
     php7-dom \
     php7-mysqli \
     php7-tokenizer \
+    php7-mbstring \
+    php7-imagick \
+    php7-zip \
+    php7-fileinfo \
+    php7-exif \
   \
     && mkdir -p /run/lighttpd/ \
     && chown www-data. /run/lighttpd/  \ 
