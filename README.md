@@ -8,7 +8,7 @@
 
 You will end up with a working .onion address, where you can host a blog, forum and similar.
 
-You can edit the Dockerfile in ./alpine/ for a newer version. 3.12 currently is the newest, but there is also alpine:edge which has PHP 7.4.
+You can edit the Dockerfiles for a newer version of Alpine. 3.12 currently is the newest, but there is also alpine:edge which has PHP 7.4. Alpine:latest however is very old and might not even have PHP7.
 
 You can also build this for different architectures like linux/amd64.
 
