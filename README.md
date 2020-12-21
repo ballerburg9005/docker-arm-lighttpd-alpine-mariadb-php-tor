@@ -1,8 +1,6 @@
-### Docker aarch64 (arm64, armhf) LAMP-T stack (Lighttpd, Alpine, MariaDB, PHP, Tor)
+### Docker Lighttpd+PHP, MariaDB, Tor containers made with ARM boxes in mind (aarch64, arm64, armhf)
 
-Check out https://github.com/luvres/armhf for more stuff. Its dated though, but can be easily adopted into this project folder.
-
-**USING: Alpine 3.12 with PHP 7.3**
+**USING: Debian:latest with PHP 7 & Alpine 3.12 for the rest**
 
 **Time required: 20 minutes**
 
@@ -16,7 +14,9 @@ You can also build this for different architectures like linux/amd64.
 
 The following instructions assume that you are cross-compiling on your Linux PC for some ARM box. I am using a repurposed Android TV Box running LibreELEC, but it should also work without issues on Rasperry Pi, Odroid, Wetek, S805/S812/S905 devices, etc. Maybe you need to use armv7 for older boxes.
 
-Please note that I have not included any of the typical docker setup-scripts on purpose. They break easily with future versions, and checking them for loopholes and errors is very tedious to the user. Quite frankly, autosetup scripts are a totally fragile and untransparent mess. If you find this repo 5 years from now, just put in alpine:6.1something and it probably will all still be working - unlike the other docker images out there still running PHP5.
+Please note that I have not included any of the typical docker setup-scripts on purpose. They break easily with future versions, and checking them for loopholes and errors is very tedious to the user. Quite frankly, autosetup scripts are a totally fragile and untransparent mess with Goatse style gaping security holes. If you find this repo 5 years from now, just put in alpine:6.1something and it probably will all still be working - unlike the other docker images out there still running PHP5.
+
+Note: I changed the PHP container to Debian, because Alpine implements some weirdo version of glob() that breaks any PHP app which uses it.
 
 ## Build setup on your PC
 * Use root account for all commands

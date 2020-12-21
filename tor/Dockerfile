@@ -1,4 +1,4 @@
-FROM mylocalpkg/alpine
+FROM alpine:3.12
 
 RUN apk -U add tor torsocks
 
