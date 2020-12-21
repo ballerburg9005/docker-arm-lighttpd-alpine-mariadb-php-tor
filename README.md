@@ -92,7 +92,7 @@ mkdir mysql httpd tor
 chmod 750 mysql httpd 
 chmod 755 tor
 chown 100:101 mysql
-chown 1000:1000 httpd
+chown 33:33 httpd
 
 # for Tor 
 mkdir tor/hiddenservices
