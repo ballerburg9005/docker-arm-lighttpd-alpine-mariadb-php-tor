@@ -16,7 +16,7 @@ The following instructions assume that you are cross-compiling on your Linux PC 
 
 Please note that I have not included any of the typical zero-configuration docker setup scripts on purpose. They break easily with future versions, and checking them for loopholes and errors is very tedious to the user. Quite frankly, autosetup scripts are a totally fragile and untransparent mess. That is why most of the other docker images I found have security holes and mostly still use obsolete versions like PHP5 with hardly any new updated versions available.
 
-Note: I changed the PHP container to Debian, because Alpine implements some weirdo version of glob() that doesn't work but is required by some PHP applications.
+Note: I changed the PHP container to Debian, because Alpine implements some weirdo version of glob() that doesn't really work but is required by some PHP applications.
 
 ## Build setup on your PC
 * Use root account for all commands
