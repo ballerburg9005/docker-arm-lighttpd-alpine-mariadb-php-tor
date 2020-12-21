@@ -56,10 +56,8 @@ Make sure it says linux/arm64 obviously.
 
 ## Building the packages
 ``` 
-docker buildx build --platform linux/arm64 -t mylocalpkg/alpine ./alpine
 docker buildx build --platform linux/arm64 -t mylocalpkg/arm:lighttpd ./lighttpd
 docker buildx build --platform linux/arm64 -t mylocalpkg/arm:mariadb ./mariadb
-docker buildx build --platform linux/arm64 -t mylocalpkg/arm:php7 ./php7
 docker buildx build --platform linux/arm64 -t mylocalpkg/arm:tor ./tor
 ```
 
@@ -67,8 +65,8 @@ docker buildx build --platform linux/arm64 -t mylocalpkg/arm:tor ./tor
 ## Saving and deploying the packages
  
 ```
-for name in lighttpd mariadb php7 tor; do docker save mylocalpkg/arm:$name | bzip2 > $name.bz2; done
-scp lighttpd.bz2 mariadb.bz2 php7.bz2 tor.bz2 root@192.168.0.10:/home/mydestination/
+for name in lighttpd mariadb tor; do docker save mylocalpkg/arm:$name | bzip2 > $name.bz2; done
+scp lighttpd.bz2 mariadb.bz2 tor.bz2 root@192.168.0.10:/home/mydestination/
 ```
 
 
@@ -77,7 +75,7 @@ scp lighttpd.bz2 mariadb.bz2 php7.bz2 tor.bz2 root@192.168.0.10:/home/mydestinat
 SSH into your ARM box.
 
 ```
-for name in lighttpd mariadb php7 tor; do docker load -i ${name}.bz2; done
+for name in lighttpd mariadb tor; do docker load -i ${name}.bz2; done
 ```
 
 Please adapt the exported variables appropriately and don't switch ssh sessions to not lose them.
@@ -158,7 +156,7 @@ export UR_HOST_DIR=/storage/
 
 # initial docker setup commands to create containers
 docker run --name MariaDB -h mariadb  -v ${UR_HOST_DIR}/mysql:/var/lib/mysql -d mylocalpkg/arm:mariadb &
-docker run --name PHP -h php --link MariaDB:mariadb-host -v ${UR_HOST_DIR}/httpd:/var/www -d mylocalpkg/arm:php7 &
+docker run --name PHP -h php --link MariaDB:mariadb-host -v ${UR_HOST_DIR}/httpd:/var/www -d mylocalpkg/arm:lighttpd &
 docker run --name TOR -d --link PHP:php-host -v ${UR_HOST_TOR_DIR}/tor:/etc/tor mylocalpkg/arm:tor &
 ```
 
