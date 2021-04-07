@@ -2,10 +2,6 @@
 
 **USING: Debian:latest with PHP 7 & Alpine 3.12 for the rest**
 
-**Time required: 20 minutes**
-
-**Fiddle factor: negligible**
-
 You will end up with a working .onion address, where you can host a blog, forum and similar.
 
 You can edit the Dockerfiles for a newer version of Alpine. 3.12 currently is the newest, but there is also alpine:edge which has PHP 7.4. Alpine:latest however is very old and might not even have PHP7.
