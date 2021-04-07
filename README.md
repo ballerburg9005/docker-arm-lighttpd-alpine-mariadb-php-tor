@@ -197,12 +197,13 @@ eschalot -t4 -v -c -r "yiff69$"
 No ports are exposed to the outside by default. You have to use the .onion URL to access your site.
 
 
-## Use of Lighttpd container for normal webserver (HTTPS & HTTP)
+## Use of Lighttpd container for normal webserver (HTTPS & HTTP with certbot)
 
 
 <details>
   <summary> ${UR_HOST_DIR}/10-lighttpd-vhosts.conf</summary>
-
+	
+```
 $HTTP["host"] =~ "(^|.)realdomainname*\.com\.*$" {
             server.document-root = "/var/www/realdomainname.com/"
 }
@@ -225,11 +226,13 @@ $SERVER["socket"] == "0.0.0.0:443" {
 		       ssl.pemfile = "/etc/letsencrypt/live/anotherdommainname.com/merged.pem"
 	   }                  
 }
+```
 </details>
 
 <details>
   <summary> ${UR_HOST_DIR}/httpd-cron-certbot.sh</summary>
 
+```
 #!/bin/sh
 for i in realdomainname.com anotherdommainname.com; do
 	certbot certonly --webroot -w /var/www/$i -d $i --non-interactive --agree-tos -m webadmin@ballerburg9005.33mail.com
@@ -240,7 +243,7 @@ chown :www-data /etc/letsencrypt
 chown :www-data /etc/letsencrypt/live
 chmod g+x /etc/letsencrypt
 chmod g+x /etc/letsencrypt/live
-
+```
 </details>
 
 ```
