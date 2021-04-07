@@ -246,8 +246,16 @@ chmod g+x /etc/letsencrypt/live
 ```
 </details>
 
-```
-chmod 755 ${UR_HOST_DIR}/httpd-cron-certbot.sh
 
-docker run --name httpd -h httpd --link mysql:mysql-host -v ${UR_HOST_DIR}/httpd:/var/www -v ${UR_HOST_DIR}/10-lighttpd-vhosts.conf:/etc/lighttpd/conf-enabled/10-lighttpd-vhosts.conf -v ${UR_HOST_DIR}/httpd-cron-certbot.sh:/etc/cron.d/httpd-cron-certbot.sh -p 80:80 -p 443:443 -d mylocalpkg/arm:lighttpd
+<details>
+  <summary> ${UR_HOST_DIR}/httpd-cron-certbot</summary>
+
+* 00 * * * root /etc/lighttpd/httpd-cron-certbot.sh
+</details>
+
+
+```
+chmod 755 ${UR_HOST_DIR}/httpd-cron-certbot*
+
+docker run --name httpd -h httpd --link mysql:mysql-host -v ${UR_HOST_DIR}/httpd:/var/www -v ${UR_HOST_DIR}/10-lighttpd-vhosts.conf:/etc/lighttpd/conf-enabled/10-lighttpd-vhosts.conf -v ${UR_HOST_DIR}/httpd-cron-certbot:/etc/cron.d/httpd-cron-certbot -v ${UR_HOST_DIR}/httpd-cron-certbot.sh:/etc/lighttpd/httpd-cron-certbot.sh -p 80:80 -p 443:443 -d mylocalpkg/arm:lighttpd
 ```
