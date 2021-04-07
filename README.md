@@ -195,3 +195,56 @@ eschalot -t4 -v -c -r "yiff69$"
 ```
 
 No ports are exposed to the outside by default. You have to use the .onion URL to access your site.
+
+
+## Use of Lighttpd container for normal webserver (HTTPS & HTTP)
+
+
+<details>
+  <summary> ${UR_HOST_DIR}/10-lighttpd-vhosts.conf</summary>
+
+$HTTP["host"] =~ "(^|.)realdomainname*\.com\.*$" {
+            server.document-root = "/var/www/realdomainname.com/"
+}
+
+$HTTP["host"] =~ "(^|.)anotherdommainname*\.com\.*$" {
+            server.document-root = "/var/www/anotherdommainname.com/"
+}
+$SERVER["socket"] == "0.0.0.0:443" {
+    ssl.engine = "enable"
+		  ssl.pemfile = "/etc/lighttpd/certs/example.com.pem"
+
+	   $HTTP["host"] =~  "(^|.)realdommainname\.com\.*$" {
+        	server.document-root = "/var/www/realdomainname.com/"
+		       ssl.ca-file = "/etc/letsencrypt/live/realdomainname.com/chain.pem"
+		       ssl.pemfile = "/etc/letsencrypt/live/realdomainname.com/merged.pem"
+	   }
+	   $HTTP["host"] =~  "(^|.)anotherdommainname\.com\.*$" {
+        	server.document-root = "/var/www/anotherdommainname.com/"
+		       ssl.ca-file = "/etc/letsencrypt/live/anotherdommainname.com/chain.pem"
+		       ssl.pemfile = "/etc/letsencrypt/live/anotherdommainname.com/merged.pem"
+	   }                  
+}
+</details>
+
+<details>
+  <summary> ${UR_HOST_DIR}/httpd-cron-certbot.sh</summary>
+
+#!/bin/sh
+for i in realdomainname.com anotherdommainname.com; do
+	certbot certonly --webroot -w /var/www/$i -d $i --non-interactive --agree-tos -m webadmin@ballerburg9005.33mail.com
+	cat /etc/letsencrypt/live/$i/privkey.pem /etc/letsencrypt/live/$i/cert.pem > /etc/letsencrypt/live/$i/merged.pem
+done
+
+chown :www-data /etc/letsencrypt
+chown :www-data /etc/letsencrypt/live
+chmod g+x /etc/letsencrypt
+chmod g+x /etc/letsencrypt/live
+
+</details>
+
+```
+chmod 755 ${UR_HOST_DIR}/httpd-cron-certbot.sh
+
+docker run --name httpd -h httpd --link mysql:mysql-host -v ${UR_HOST_DIR}/httpd:/var/www -v ${UR_HOST_DIR}/10-lighttpd-vhosts.conf:/etc/lighttpd/conf-enabled/10-lighttpd-vhosts.conf -v ${UR_HOST_DIR}/httpd-cron-certbot.sh:/etc/cron.d/httpd-cron-certbot.sh -p 80:80 -p 443:443 -d mylocalpkg/arm:lighttpd
+```
