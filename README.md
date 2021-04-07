@@ -250,7 +250,9 @@ chmod g+x /etc/letsencrypt/live
 <details>
   <summary> ${UR_HOST_DIR}/httpd-cron-certbot</summary>
 
+```
 * 00 * * * root /etc/lighttpd/httpd-cron-certbot.sh
+```
 </details>
 
 
