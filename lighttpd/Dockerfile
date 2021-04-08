@@ -26,5 +26,5 @@ VOLUME /var/www
 
 EXPOSE 80
 
-CMD php-fpm7.3 -D && for z in /etc/cron.d/*; do crontab $z; done && cron && tail -f /var/log/cron.log && lighttpd -D -f /etc/lighttpd/lighttpd.conf
+CMD php-fpm7.3 -D && ( echo "" > /etc/crontab_real && cat /etc/cron.d/* > /etc/crontab_real || true) && crontab /etc/crontab_real && cron && lighttpd -D -f /etc/lighttpd/lighttpd.conf
 #ENTRYPOINT ["/usr/sbin/lighttpd", "-D", "-f", "/etc/lighttpd/lighttpd.conf"]
