@@ -230,7 +230,7 @@ $SERVER["socket"] == "0.0.0.0:443" {
 
 ```
 #!/bin/sh
-for i in captcha.us.to iqcaptcha.us.to ballerburg.us.to; do
+for i in realdomainname.com anotherdommainname.com; do
 	FORCE=" --force-renewal "
 	if test -f "/etc/letsencrypt/live/$i/privkey.pem"; then
    		 FORCE=""
