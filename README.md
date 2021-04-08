@@ -235,7 +235,7 @@ for i in realdomainname.com anotherdommainname.com; do
 	if test -f "/etc/letsencrypt/live/$i/privkey.pem"; then
    		 FORCE=""
 	fi
-	certbot certonly $FORCE --webroot -w /var/www/$i -d $i --non-interactive --agree-tos -m webadmin@ballerburg9005.33mail.com
+	certbot certonly $FORCE --webroot -w /var/www/$i -d $i --non-interactive --agree-tos -m admin@example.com
 	cat /etc/letsencrypt/live/$i/privkey.pem /etc/letsencrypt/live/$i/cert.pem > /etc/letsencrypt/live/$i/merged.pem
 done
 
