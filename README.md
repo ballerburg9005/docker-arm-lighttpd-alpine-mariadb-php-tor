@@ -230,8 +230,12 @@ $SERVER["socket"] == "0.0.0.0:443" {
 
 ```
 #!/bin/sh
-for i in realdomainname.com anotherdommainname.com; do
-	certbot certonly --webroot -w /var/www/$i -d $i --non-interactive --agree-tos -m webadmin@ballerburg9005.33mail.com
+for i in captcha.us.to iqcaptcha.us.to ballerburg.us.to; do
+	FORCE=" --force-renewal "
+	if test -f "/etc/letsencrypt/live/$i/privkey.pem"; then
+   		 FORCE=""
+	fi
+	certbot certonly $FORCE --webroot -w /var/www/$i -d $i --non-interactive --agree-tos -m webadmin@ballerburg9005.33mail.com
 	cat /etc/letsencrypt/live/$i/privkey.pem /etc/letsencrypt/live/$i/cert.pem > /etc/letsencrypt/live/$i/merged.pem
 done
 
@@ -251,9 +255,15 @@ chmod g+x /etc/letsencrypt/live
 ```
 </details>
 
-
 ```
 chmod 755 ${UR_HOST_DIR}/httpd-cron-certbot*
 
 docker run --name httpd -h httpd --link mysql:mysql-host -v ${UR_HOST_DIR}/httpd:/var/www -v ${UR_HOST_DIR}/10-lighttpd-vhosts.conf:/etc/lighttpd/conf-enabled/10-lighttpd-vhosts.conf -v ${UR_HOST_DIR}/httpd-cron-certbot:/etc/cron.d/httpd-cron-certbot -v ${UR_HOST_DIR}/httpd-cron-certbot.sh:/etc/lighttpd/httpd-cron-certbot.sh -p 80:80 -p 443:443 -d mylocalpkg/arm:lighttpd
+```
+
+The server will refuse to run if you have not generated the certificates yet. Comment out all the $HTTP["host"] sections in the $SERVER["socket"] == "0.0.0.0:443" SSL section and run the server. Shell into the docker container and run the cron script:
+
+```
+docker exec -ti httpd bash
+/etc/lighttpd/httpd-cron-certbot.sh
 ```
